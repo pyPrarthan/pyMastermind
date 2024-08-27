@@ -17,7 +17,7 @@ def generate_code():
 
 
 # Function for the user to guess the code. 
-def guess():
+def guess_code():
 
     while True:
         guess = input("Guess: ").upper().split()
@@ -46,7 +46,7 @@ def check_code(guess, real_code):
 
     for guess_color, real_color in zip(guess, real_code):
         if guess_color == real_color:
-            correct_post += 1
+            correct_pos += 1
             colors_count[guess_color] -= 1
         
     for guess_color, real_color in zip(guess, real_code):
@@ -55,3 +55,30 @@ def check_code(guess, real_code):
             colors_count[guess_color] -= 1
 
     return correct_pos, incorrect_pos
+
+def game():
+    print(f"Welcome to MASTERMIND!!!, you have {TRIES} to guess the code...")
+    print("The valid colors are ", *COLORS)
+    code = generate_code()
+    for attempts in range(0, TRIES):
+        guess = guess_code()
+        correct_pos, incorrect_pos = check_code(guess, code)
+
+        if correct_pos == CODE_LENGTH:
+            print(f"You guessed the code in {attempts} tries!")
+            break
+
+        print(f"Correct positions: {correct_pos} | Incorrect positions: {incorrect_pos}")
+
+    else:
+        print("You ran out of tries, the code was: ", *code)
+
+
+if __name__ =="__main__":
+    while True:
+        game()  
+        play_again = input("Do you want to play again? (yes/no): ")
+        if play_again.lower() != "yes":
+            break
+
+        
