@@ -16,5 +16,22 @@ def generate_code():
     return code 
 
 
-code = generate_code()
-print(code)
+# Function for the user to guess the code. 
+def guess():
+
+    while True:
+        guess = input("Guess: ").upper().split()
+
+        if len(guess) != CODE_LENGTH:
+            print(f"You must guess {CODE_LENGTH} colors.")
+            continue
+
+        for color in guess:
+            if color not in COLORS:
+                print(f"Invalid color{color}: Please use one of the following colors: {COLORS}")
+                break
+            else:
+                return guess
+        
+
+print(guess())
