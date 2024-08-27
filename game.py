@@ -34,4 +34,24 @@ def guess():
                 return guess
         
 
-print(guess())
+def check_code(guess, real_code):
+    colors_count = {}
+    correct_pos = 0
+    incorrect_pos = 0
+
+    for color in real_code:
+        if color not in colors_count: 
+            colors_count[color] = 0
+        colors_count[color] += 1
+
+    for guess_color, real_color in zip(guess, real_code):
+        if guess_color == real_color:
+            correct_post += 1
+            colors_count[guess_color] -= 1
+        
+    for guess_color, real_color in zip(guess, real_code):
+        if guess_color in colors_count and colors_count[guess_color] > 0:
+            incorrect_pos += 1
+            colors_count[guess_color] -= 1
+
+    return correct_pos, incorrect_pos
