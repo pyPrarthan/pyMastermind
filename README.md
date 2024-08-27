@@ -39,8 +39,6 @@ Welcome to the **Mastermind Game**! This is a simple Python implementation of th
 ## 🤝 Contributing
 Feel free to fork this repository, make improvements, and submit a pull request. Contributions are welcome! 🎉
 
-## 📜 License
-This project is licensed under the MIT License.
 
 ## 📺 Video Inspiration
 This project was inspired by a YouTube tutorial. You can check out the video [here](https://www.youtube.com/watch?v=sP-gFDreaQ4).
